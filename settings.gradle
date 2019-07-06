@@ -1,0 +1,3 @@
+rootProject.name = 'kloudia-aws'
+includeBuild("../kloudia-core")
+
