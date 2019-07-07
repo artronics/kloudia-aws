@@ -11,7 +11,18 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "com.artronics.kloudia:kloudia-core"
+    implementation "com.amazonaws:aws-java-sdk:1.11.587"
+    implementation "com.google.inject:guice:4.2.2"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.0'
+    testImplementation "io.mockk:mockk:1.9.3"
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
+}
+test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
 
 compileKotlin {
