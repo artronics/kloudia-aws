@@ -1,8 +1,5 @@
 package com.artronics.kloudia.aws
 
-import com.artronics.kloudia.aws.configuration.AwsConfigurationService
-import com.artronics.kloudia.aws.context.AwsContext
-import com.artronics.kloudia.aws.provider.AwsProvider
 import com.artronics.kloudia.core.ConfigurationService
 import com.artronics.kloudia.core.Context
 import com.artronics.kloudia.core.Provider
@@ -11,9 +8,6 @@ import com.google.inject.Guice
 
 class AwsModule : AbstractModule() {
     override fun configure() {
-        bind(ConfigurationService::class.java).to(AwsConfigurationService::class.java)
-        bind(Provider::class.java).to(AwsProvider::class.java)
-        bind(Context::class.java).to(AwsContext::class.java)
     }
 }
 

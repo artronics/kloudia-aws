@@ -1,9 +1,8 @@
 package com.artronics.kloudia.aws.resource
 
-import com.artronics.kloudia.core.Context
 import com.artronics.kloudia.core.Resource
 
-abstract class BaseResource(name: String, protected val context: Context) : Resource {
+abstract class BaseResource(name: String) : Resource {
     private val resourceDocument = ResourceDocument(name)
 
     override fun resourceDocument(): ResourceDocument {
