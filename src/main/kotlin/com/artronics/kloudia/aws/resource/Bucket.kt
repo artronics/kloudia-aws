@@ -1,15 +1,24 @@
 package com.artronics.kloudia.aws.resource
 
-import com.artronics.kloudia.aws.context.AwsContext
+import com.artronics.kloudia.core.BaseResource
+import com.artronics.kloudia.core.Resource
 
 
-class Bucket(name: String, private val awsContext: AwsContext) : BaseResource(name = name, context = awsContext) {
-//    private val s3Client = AmazonS3ClientBuilder.standard()
-//        .withCredentials(AWSStaticCredentialsProvider(awsContext.credentials))
-//        .withRegion(awsContext.region)
-//        .build()
+internal interface BucketDsl {
+    fun bucket(init: Bucket.() -> Unit)
+}
 
-    override fun create() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+class Bucket internal constructor(
+    baseResource: Resource = BaseResource(),
+    awsBaseResourcePlan: AwsBaseResourcePlan = AwsBaseResourcePlan()
+
+) : BucketDsl,
+    Resource by baseResource,
+    AwsResourcePlan by awsBaseResourcePlan {
+
+    override fun bucket(init: Bucket.() -> Unit) {
+        val bucket = Bucket()
+        bucket.init()
     }
+
 }

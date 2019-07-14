@@ -1,10 +1,9 @@
 package com.artronics.kloudia.core
 
-
-interface Resource {
+interface Plan {
     var name: String
 }
 
-class BaseResource : Resource {
+class BasePlan : Plan {
     override lateinit var name: String
 }
